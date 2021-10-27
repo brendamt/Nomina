@@ -1,0 +1,93 @@
+﻿@page
+@model IndexModel
+@{
+
+    ViewData["Title"] = "Home page";
+    String @Mensaje = "Nomina";
+
+    String @Nombres = "Juana";
+    String @Apellidos = "Lopez";
+    String @Cargo = "Programer";
+    double SalarioMensual = 0;
+
+    Double @salarioMensual(Double SalarioMensual)
+    {
+
+        return SalarioMensual;
+    }
+    Double @descuentoAFP(Double SalarioMensual)
+    {
+
+        return SalarioMensual * 0.0287;
+    }
+
+    Double descuentoARS(Double SalarioMensual)
+    {
+        return SalarioMensual * 0.0304;
+    }
+
+    Double @descuentoISR(Double @SalarioMensual)
+    {
+        return SalarioMensual * 0.27;
+    }
+
+    Double @totalDescuentos(double TOTAL)
+    {
+
+        return TOTAL;
+    }
+
+    Double @SalarioNeto(Double SalarioMensual, double NETO)
+    {
+        return SalarioMensual * NETO;
+    }
+
+}
+
+
+<div class="text-center">
+    <h1 class="display-4"> @Mensaje</h1>
+    
+    <table style="width:100%;">
+        <tr>
+            <td>Nombres</td>
+            <td>Apellidos</td>
+            <td>Cargo</td>
+            <td>Salario Mensual</td>
+            <td>Descuento AFP</td>
+            <td>Descuento ARS</td>
+            <td>Descuento ISR</td>
+            <td>Total Descuentos</td>
+            <td>Salario Neto</td>
+        </tr>
+        <tr>
+            <td>@Nombres</td>
+            <td>@Apellidos</td>
+            <td>@Cargo</td>
+            <td>@salarioMensual(12000)</td>
+            <td>@descuentoAFP(12000)</td>
+            <td>@descuentoARS(12000) </td>
+            <td>@descuentoISR(12000)</td>
+            <td>Total Descuentos</td>
+            <td>Salario Neto</td>
+        </tr>
+
+
+    </table>
+    </p>
+</div>
+
+
+<div class="table">
+
+    <tr>
+        <td class=" style2">
+            <asp:Label Label=Label id=" lblNombre" runat="server" Font-Names=" Arial" Font-Size=" 10pt" Text=" Nombre"></asp:Label>
+        </td>
+        <td>
+            <asp:TextBox ID="txtNombre" runat=" server" width="205px"></asp:TextBox>
+        </td>
+    </tr>
+
+</div>
+
